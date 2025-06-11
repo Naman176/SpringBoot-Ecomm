@@ -19,7 +19,7 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    // Below is Constructor Injection, but we can use Autowired annotatiuon for field injection and
+    // Below is Constructor Injection, but we can use Autowired annotation for field injection and
     // get rid of above.
 //    public CategoryController(CategoryService categoryService) {
 //        this.categoryService = categoryService;
