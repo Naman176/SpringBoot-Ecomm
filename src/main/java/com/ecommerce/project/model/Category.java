@@ -1,12 +1,20 @@
 package com.ecommerce.project.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 // Getters and Setters are important as JPA uses them to get and set their values and store them in db.
 // If for any attribute, there are no getters and setters, then that attribute won't be shown in response and also its
 // value in db will be null.
 
 @Entity(name = "Categories")  // Categories will be the new table name
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
     // Marking categoryId as unique identifier (primary key) using @Id annotation
     @Id
@@ -15,31 +23,35 @@ public class Category {
     // (Types described below)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
+
+    @NotBlank
+    @Size(min = 5, message = "Category name must contain at least 5 characters")
     private String categoryName;
 
-    public Category(Long categoryId, String categoryName) {
-        this.categoryId = categoryId;
-        this.categoryName = categoryName;
-    }
-
-    public Category() {
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
+//    Not needed becoz of Lombok annotations
+//    public Category(Long categoryId, String categoryName) {
+//        this.categoryId = categoryId;
+//        this.categoryName = categoryName;
+//    }
+//
+//    public Category() {
+//    }
+//
+//    public Long getCategoryId() {
+//        return categoryId;
+//    }
+//
+//    public void setCategoryId(Long categoryId) {
+//        this.categoryId = categoryId;
+//    }
+//
+//    public String getCategoryName() {
+//        return categoryName;
+//    }
+//
+//    public void setCategoryName(String categoryName) {
+//        this.categoryName = categoryName;
+//    }
 }
 
 

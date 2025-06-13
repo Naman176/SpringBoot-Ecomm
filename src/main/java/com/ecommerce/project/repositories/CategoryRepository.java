@@ -1,9 +1,15 @@
 package com.ecommerce.project.repositories;
 
 import com.ecommerce.project.model.Category;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
+
+//    We dont need to implement this below method, jpa will automatically understand and create the implementation
+//    of below during runtime, we just have to be carefull and attribute and everything should match.
+    Category findByCategoryName(String categoryName);
 }
 
 // We get two repository interfaces for us from those libraries that we have configured like the dependencies that we
