@@ -29,4 +29,4 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 // And one of the greatest thing about this is that we don't have to write any implementation code for this particular
 // repository that we have created. Spring data JPA will automatically generate the implementation at the runtime, and
 // we can use it to perform all the basic Crud operations on the category table.
-//So for now we have created the repository and we have extended it with JPA repository interface.
+// So for now we have created the repository and we have extended it with JPA repository interface.
