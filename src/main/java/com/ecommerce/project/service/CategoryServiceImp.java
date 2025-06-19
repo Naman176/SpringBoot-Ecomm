@@ -130,6 +130,7 @@ public class CategoryServiceImp implements CategoryService {
 
         Pageable pageDetails = PageRequest.of(pageNumber, pageSize, sortByAndOrder);
         Page<Category> categoryPage = categoryRepository.findAll(pageDetails);
+
         List<Category> categories = categoryPage.stream().toList();
 
         if (categories.isEmpty()) {
